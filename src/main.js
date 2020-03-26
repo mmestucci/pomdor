@@ -108,9 +108,11 @@ const notify = (time, type) => {
 		});
 		notification.show();
 		let audio = path.join(__dirname, "audio", "pause-vic.mpeg");
-		if (type == "pause") audio = path.join(__dirname, "audio", "work-ale.wav");
-		if (type == "longpause")
-			audio = path.join(__dirname, "audio", "longpause.m4a");
+
+		if (type == "pause") audio = path.join(__dirname, "audio", "work.wav");
+		else if (type == "longpause") audio = path.join(__dirname, "audio", "work.wav");
+		else if (type == "work") audio = path.join(__dirname, "audio", "pause.wav");
+
 		if (playSound) window.webContents.send("play", audio);
 	}
 };
